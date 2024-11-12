@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="corpo">
+        <div class="container">
+            <h1 id="titulo">Funções - Javascript</h1>
+
+            <button class="button1" onclick="toggleText()">Mostrar / Ocultar o texto</button>
+            <!-- Cria um botão para a ocultação de texto -->
+            <p id="toggleText"> Este exemplo de texto será exibido e ocultado. </p>
+            <!-- texto que será ocultado e mostrado -->
+
+            <h2 id="subtitulo">Calculadora Simples</h2>
+            <input type="number" name="" id="num1" placeholder="Número 1">
+            <!-- Botão do primeiro valor que vai ser somado -->
+            <input type="number" name="" id="num2" placeholder="Número 2">
+            <!-- Botão do segundo valor que vai ser somado -->
+            <br>
+            <button class="button2" onclick="sumCalculate()">Calcular</button>
+            <!-- Botão para efetuar o calculo -->
+            <div class="texto">
+            <p id="sumResult">Soma: </p>
+            </div>
+
+            <button onclick="mudarTema()">Mudar Tema</button>
+
+        </div>
+
+    <script>
+        //-------Alternar Visibilidade
+        function toggleText() {
+            const text = document.getElementById("toggleText");
+            // pega o elemento pelo id
+            text.style.display = text.style.display === "none" ? "block" : "none";
+        }
+
+        //-------Função Soma/Sum
+
+        function sumCalculate() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            // ParseFloat = serve para garantir que o javascript vai reconhecer como um número.
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const resultado = num1 + num2
+
+
+            document.getElementById("sumResult").innerText = "Soma: " +
+                (isNaN(resultado) ? "Digite números válidos" : resultado);
+        }
+
+        // innerText serve para ler ou modificar um texto de um elemento html. 
+
+        // isNaN significa "Is not a number" e apareça quando o usario digitar algo que nao seja um número. 
+
+        function mudarTema(){
+            const corpo = document.getElementById ("corpo");
+            const titulo = document.getElementById("titulo")
+            const subtitulo = document.getElementById("subtitulo");
+            const toggleText = document.getElementById("toggleText");
+            
+            titulo.style.color = titulo.style.color === "white" ? "black" : "white";
+            subtitulo.style.color = subtitulo.style.color === "white" ? "black" : "white";
+            toggleText.style.color = toggleText.style.color === "white" ? "black" : "white";
+            corpo.style.backgroundColor = corpo.style.backgroundColor === " black" ? "white" : "black";
+        }
+
+    </script>
+
+</body>
+
+</html>
